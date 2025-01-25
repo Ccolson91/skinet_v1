@@ -4,12 +4,10 @@
 @import "tailwindcss/preflight";
 @import "tailwindcss";
 
-
-
-
-
 $customTheme: mat.define-theme();
+
 @include mat.core();
+
 .custom-theme {
     @include mat.all-component-themes($customTheme);
     
@@ -18,6 +16,11 @@ $customTheme: mat.define-theme();
         @apply rounded-md
     }
 }
+
+.container {
+    @apply mx-auto max-w-screen-2xl
+}
+
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
