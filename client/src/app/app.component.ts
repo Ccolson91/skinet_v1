@@ -7,6 +7,7 @@ import { Pagination } from './shared/models/pagination';
 import { ShopService } from './core/services/shop.service';
 import { ShopComponent } from "./features/shop/shop.component";
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
