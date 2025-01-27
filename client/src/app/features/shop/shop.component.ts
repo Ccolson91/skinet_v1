@@ -7,7 +7,6 @@ import { ProductItemComponent } from "./product-item/product-item.component";
 @Component({
   selector: 'app-shop',
   imports: [
-    MatCard,
     ProductItemComponent
 ],
   templateUrl: './shop.component.html',
@@ -24,4 +23,14 @@ export class ShopComponent implements OnInit {
       error: error => console.log(error)
     })
   }
+
+  initializeShop(){
+    this.shopService.getBrands();
+    this.shopService.getTypes();
+    this.shopService.getProducts().subscribe({
+      next: response => this.products = response.data,
+      error: error => console.log(error)
+    })
+  }
+
 }
