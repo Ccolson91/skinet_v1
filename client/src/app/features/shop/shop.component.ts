@@ -3,11 +3,20 @@ import { ShopService } from '../../core/services/shop.service';
 import { Product } from '../../shared/models/product';
 import {MatCard} from '@angular/material/card';
 import { ProductItemComponent } from "./product-item/product-item.component";
+import { FiltersDialogComponent } from './filters-dialog/filters-dialog.component';
+import { MatButton } from '@angular/material/button';
+import { MatIcon } from '@angular/material/icon';
+import {MatDialog} from '@angular/material/dialog';
+import { MatListOption, MatSelectionList } from '@angular/material/list';
 
 @Component({
   selector: 'app-shop',
   imports: [
-    ProductItemComponent
+    ProductItemComponent,
+    MatButton,
+    MatIcon,
+    MatSelectionList,
+    MatListOption
 ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
@@ -15,6 +24,7 @@ import { ProductItemComponent } from "./product-item/product-item.component";
 export class ShopComponent implements OnInit {
 
   private shopService = inject(ShopService);
+  private dialogService = inject(MatDialog);
   products: Product[] = [];
 
   ngOnInit(): void {
@@ -33,4 +43,9 @@ export class ShopComponent implements OnInit {
     })
   }
 
+  openFiltersDialog(){
+    const dialogRef = this.dialogService.open(FiltersDialogComponent,{
+      minWidth: '500px'
+    })
+  }
 }
