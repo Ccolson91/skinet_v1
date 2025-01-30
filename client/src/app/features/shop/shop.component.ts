@@ -14,9 +14,7 @@ import { MatListOption, MatSelectionList } from '@angular/material/list';
   imports: [
     ProductItemComponent,
     MatButton,
-    MatIcon,
-    MatSelectionList,
-    MatListOption
+    MatIcon
 ],
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
